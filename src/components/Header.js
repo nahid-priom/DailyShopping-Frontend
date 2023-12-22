@@ -1,7 +1,6 @@
 import React from "react";
-import { logo } from "../assets";
+import { logo, userLogo } from "../assets";
 import { IoCartOutline } from "react-icons/io5";
-import { FaRegUserCircle } from "react-icons/fa";
 const Header = () => {
   return (
     <div className="font-titleFont w-full h-20 bg-white border-b-[1px] border-b-gray-800">
@@ -29,9 +28,18 @@ const Header = () => {
           </ul>
           <div className="relative flex justify-end items-start">
             <IoCartOutline className="text-3xl cursor-pointer" />
-            <span className="bg-red-800 absolute w-4 left-6 top-[-8px] text-white rounded-full  text-sm flex justify-center items-center font-semibold">0</span>
+            <span className="bg-orange-800 absolute w-4 left-6 top-[-8px] text-white rounded-full  text-sm flex justify-center items-center font-semibold">
+              0
+            </span>
           </div>
-          <FaRegUserCircle className="text-3xl"/>
+          <div className="flex items-center justify-center">
+            <img
+              className="w-8 h-8 rounded-full mr-2"
+              src={userLogo}
+              alt="user logo"
+            />
+            <text>Nahid Ferdous Priom</text>
+          </div>
         </div>
       </div>
     </div>
