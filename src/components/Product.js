@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { addToCart } from "../redux/shoppingSlice";
 
 const Product = () => {
+  const dispatch = useDispatch();
   const [details, setDetails] = useState({});
+  let [baseQty, setBaseQty] = useState(1);
   const location = useLocation();
   useEffect(() => {
     setDetails(location.state.item);
-  }, []);
+  }, [location.state.item]);
   return (
     <div>
       <div className="max-w-screen-xl mx-auto my-10 flex gap-10">
@@ -52,16 +56,38 @@ const Product = () => {
             <div className="w-52 flex items-center justify-between text-gray-500 gap-4 border p-3">
               <p className="text-sm">Quantity</p>
               <div className="flex items-center gap-4 text-sm font-semibold">
-                <button className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black">
+                <button
+                  onClick={() =>
+                    setBaseQty(baseQty === 1 ? (baseQty = 1) : baseQty - 1)
+                  }
+                  className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
+                >
                   -
                 </button>
-                <span>{1}</span>
-                <button className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black">
+                <span>{baseQty}</span>
+                <button
+                  onClick={() => setBaseQty(baseQty + 1)}
+                  className="border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black"
+                >
                   +
                 </button>
               </div>
             </div>
-            <button className="bg-black text-white py-3 px-6 active:bg-gray-800">
+            <button
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    _id: details._id,
+                    title: details.title,
+                    image: details.image,
+                    price: details.price,
+                    quantity: baseQty,
+                    description: details.description,
+                  })
+                )
+              }
+              className="bg-black text-white py-3 px-6 active:bg-gray-800"
+            >
               add to cart
             </button>
           </div>

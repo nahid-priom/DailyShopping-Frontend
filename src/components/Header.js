@@ -2,7 +2,10 @@ import React from "react";
 import { logo, userLogo } from "../assets";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Header = () => {
+  const productData = useSelector((state) => state.shopping.productData)
+  console.log(productData)
   return (
     <div className="sticky top-0 z-50 font-titleFont w-full h-20 bg-white border-b-[1px] border-b-gray-800">
       <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
@@ -32,7 +35,7 @@ const Header = () => {
           <div className="relative flex justify-end items-start">
             <IoCartOutline className="text-3xl cursor-pointer" />
             <span className="bg-orange-800 absolute w-4 left-6 top-[-8px] text-white rounded-full  text-sm flex justify-center items-center font-semibold">
-              0
+              {productData.length}
             </span>
           </div>
           <div className="flex items-center justify-center">
