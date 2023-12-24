@@ -11,11 +11,13 @@ import {
 } from "react-router-dom";
 import Cart from "./pages/Cart";
 import { ProductData } from "./api/Api";
+import Product from "./components/Product";
 
 const Layout = () => {
   return (
     <div>
       <Header />
+      <ScrollRestoration/>
       <Outlet />
       <Footer />
     </div>
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: ProductData,
+      },
+      {
+        path: "/product/:id",
+        element: <Product />,
       },
       {
         path: "/cart",

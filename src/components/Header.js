@@ -1,13 +1,16 @@
 import React from "react";
 import { logo, userLogo } from "../assets";
 import { IoCartOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="sticky top-0 z-50 font-titleFont w-full h-20 bg-white border-b-[1px] border-b-gray-800">
       <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
-        <div>
-          <img className="w-32" src={logo} alt="logo" />
-        </div>
+        <Link to="/">
+          <div>
+            <img className="w-32" src={logo} alt="logo" />
+          </div>
+        </Link>
         <div className="flex items-center gap-8">
           <ul className="flex items-center gap-8">
             <li className="text-base text-black font-bold hover:text-orange-700 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300">
