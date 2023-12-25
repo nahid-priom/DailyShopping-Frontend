@@ -3,6 +3,7 @@ import { MdOutlineStar } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { addToCart } from "../redux/shoppingSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -84,7 +85,7 @@ const Product = () => {
                     quantity: baseQty,
                     description: details.description,
                   })
-                )
+                ) & toast.success(`${details.title} is added`)
               }
               className="bg-black text-white py-3 px-6 active:bg-gray-800"
             >
@@ -97,6 +98,18 @@ const Product = () => {
           </p>
         </div>
       </div>
+      <ToastContainer
+        position="top-left"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };
