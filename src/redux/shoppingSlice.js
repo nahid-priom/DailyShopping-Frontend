@@ -32,7 +32,7 @@ export const shoppingSlice = createSlice({
         (item) => item._id === action.payload._id
       );
       if (item) {
-        item.quantity++;
+        item.quantity =item.quantity+1;
       }
     },
     decrementQuantity: (state, action) => {
