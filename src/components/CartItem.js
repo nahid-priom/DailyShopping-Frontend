@@ -11,7 +11,7 @@ const CartItem = () => {
   const productData = useSelector((state) => state.shopping.productData);
   const dispatch = useDispatch();
   return (
-    <div className="w-2/3 pr-10">
+    <div className="xl:w-2/3 px-4 xl:ox-0  w-full xl:pr-10">
       <div className="w-full">
         <h2 className="font-titleFont text-2xl">shopping cart</h2>
       </div>
@@ -30,7 +30,7 @@ const CartItem = () => {
                 className="text-xl text-gray-600 hover:text-red-600 cursor-pointer duration-300"
               />
               <img
-                className="w-32 h-32 object-cover"
+                className="xl:w-32 w-32 xl:h-32 h-20 object-cover"
                 src={item.image}
                 alt="productImage"
               />
@@ -47,7 +47,7 @@ const CartItem = () => {
           onClick={() =>
             dispatch(resetCart()) & toast.error("Your cart is empty")
           }
-          className="bg-red-500 text-white mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300"
+          className="bg-red-500 flex  text-white mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300"
         >
           Reset Cart
         </button>
