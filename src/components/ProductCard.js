@@ -35,7 +35,7 @@ const ProductCard = ({ product }) => {
       <div className="w-full border-[1px] xl:px-2 px-1 py-4">
         <div className="flex xl:flex-row flex-col xl:justify-between justify-center gap-2 xl:gap-0 items-center">
           <div>
-            <h2 className="font-titleFont text-base font-bold">
+            <h2 className="font-titleFont text-base xl:text-xl  font-bold">
               {product.title.substring(0, 15)}
             </h2>
           </div>
@@ -66,7 +66,7 @@ const ProductCard = ({ product }) => {
             </p>
           </div>
         </div>
-        <div className="flex justify-center pt-2">
+        <div className="flex xl:justify-start justify-center pt-2">
           <p className="text-xs xl:text-base">{product.category}</p>
         </div>
         <div className="absolute top-4 right-0">
